@@ -12,6 +12,7 @@ module.exports = {
     port: 3000,
     compress: true,
     hotOnly: false,
+    contentBase: 'static',
     openPage: 'base/',
     publicPath: '/base/',
   },
