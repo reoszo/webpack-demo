@@ -11,7 +11,9 @@ module.exports = {
   devServer: {
     port: 3000,
     compress: true,
-    hotOnly: true,
+    hotOnly: false,
+    openPage: 'base/',
+    publicPath: '/base/',
   },
   plugins: [
     new CleanWebpackPlugin({
