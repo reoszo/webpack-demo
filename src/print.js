@@ -1,4 +1,4 @@
 export default function print() {
   console.log('I get called from print.js');
-  cosnole.error('console.error');
+  console.error('console.error');
 }
