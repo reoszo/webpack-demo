@@ -8,7 +8,13 @@ module.exports = {
     print: './src/print.js'
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      dry: false,
+      cleanOnceBeforeBuildPatterns: [
+        '**/*',
+        '!a.test'
+      ]
+    }),
     new HtmlWebpackPlugin({
       title: 'html created by webpack'
     })
