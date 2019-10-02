@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import './index.css';
 import icon from './icon.svg';
+import data from './data.xml';
 
 function component() {
   let element = document.createElement('div');
@@ -13,6 +14,8 @@ function component() {
   const image = new Image();
   image.src = icon;
   element.appendChild(image);
+
+  console.log('data.xml', data);
 
   return element;
 }
