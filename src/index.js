@@ -2,6 +2,10 @@ import _ from 'lodash';
 import print from './print';
 import './index.css';
 
+if (process.env.NODE_ENV === 'production') {
+  console.log('这是production环境');
+}
+
 function component() {
   var ele = document.createElement('div');
   var btn = document.createElement('button');
