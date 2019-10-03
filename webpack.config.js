@@ -12,7 +12,7 @@ module.exports = {
     port: 3000,
     compress: true,
     hot: true,
-    hotOnly: true,
+    hotOnly: false,
     contentBase: 'static',
     openPage: 'base/',
     publicPath: '/base/',
@@ -28,8 +28,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'html created by webpack'
     }),
-    // new webpack.NamedModulesPlugin(),
-    // new webpack.HotModuleReplacementPlugin(),
   ],
   output: {
     filename: '[name].bundle.js',
