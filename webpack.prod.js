@@ -5,5 +5,10 @@ const webpackCommonConfig = require('./webpack.common.js');
 
 module.exports = webpackMerge(webpackCommonConfig, {
   devtool: 'source-map',
-  mode: 'production',
+  mode: 'none',
+  plugins: [
+    new UglifyJSPlugin({
+      sourceMap: true,
+    }),
+  ],
 });
