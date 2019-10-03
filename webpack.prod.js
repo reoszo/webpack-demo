@@ -3,10 +3,19 @@ const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpackCommonConfig = require('./webpack.common.js');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = webpackMerge(webpackCommonConfig, {
-  devtool: 'source-map',
-  mode: 'none',
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract([
+          'css-loader',
+        ]),
+      }
+    ]
+  },
   plugins: [
     new UglifyJSPlugin({
       sourceMap: true,
@@ -14,5 +23,10 @@ module.exports = webpackMerge(webpackCommonConfig, {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
+    new ExtractTextPlugin({
+      filename: '[name]@[chunkhash].css',
+    }),
   ],
+  devtool: 'source-map',
+  mode: 'none',
 });
