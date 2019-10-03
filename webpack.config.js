@@ -7,7 +7,7 @@ module.exports = {
   entry: {
     app: './src/index.js',
   },
-  devtool: 'inline-source-map',
+  // devtool: 'inline-source-map',
   devServer: {
     port: 3000,
     compress: true,
@@ -43,5 +43,6 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-  }
+  },
+  mode: 'production',
 };
