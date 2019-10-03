@@ -1,17 +1,18 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
     app: './src/index.js',
-    print: './src/print.js',
   },
   devtool: 'inline-source-map',
   devServer: {
     port: 3000,
     compress: true,
-    hotOnly: false,
+    hot: true,
+    // hotOnly: false,
     contentBase: 'static',
     openPage: 'base/',
     publicPath: '/base/',
@@ -27,6 +28,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'html created by webpack'
     }),
+    // new webpack.NamedModulesPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
   ],
   output: {
     filename: '[name].bundle.js',

@@ -9,7 +9,9 @@ function component() {
   element.innerHTML = '<div style="height: 100px;">' + _.join(['Hello', 'webpack'], ' ') + '</div>';
   btn.innerHTML = 'Click me and check the console!';
 
-  btn.onclick = print;
+  btn.onclick = () => {
+    print();
+  }
 
   element.appendChild(btn);
 
@@ -17,3 +19,9 @@ function component() {
 }
 
 document.body.appendChild(component());
+
+if (module.hot) {
+  module.hot.accept('./print.js', function() {
+    console.log('you can click btn and check the console, print() is already changed');
+  });
+}
