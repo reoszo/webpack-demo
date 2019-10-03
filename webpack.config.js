@@ -17,6 +17,17 @@ module.exports = {
     openPage: 'base/',
     publicPath: '/base/',
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ]
+      }
+    ]
+  },
   plugins: [
     new CleanWebpackPlugin({
       dry: false,
